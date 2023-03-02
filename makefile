@@ -1,7 +1,6 @@
 all: run
 
-run: 
-	find build/Makefile || make BUILD
+run: BUILD 
 	build/ShowMePls
 
 BUILD:
