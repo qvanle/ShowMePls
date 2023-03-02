@@ -5,7 +5,7 @@ This is my CS162 project.
 2. gcc version 10.2.1
 ## INSTALl
 
-### On linux (recomment debian 11.0)
+### On linux (recommend debian 11.0)
 1. Open terminal and run those command:
 ```
 sudo apt-get update
