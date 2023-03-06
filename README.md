@@ -23,3 +23,8 @@ sudo apt-get install libsdl2-dev
 make
 ```
 
+## research results
+- SDL2 access to low level very fast
+- SDL2 does not fit for GUI develop (nó rất đần)
+1. SDL2 don't have Button
+2. SDL2 need an external library for scale images
