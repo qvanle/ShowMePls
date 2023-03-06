@@ -1,4 +1,5 @@
 #include <iostream>
+#include <glad/glad.h>
 #include <Visualizer.hpp>
 
 int main(int argc, char *argv[])
