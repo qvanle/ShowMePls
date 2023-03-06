@@ -1,3 +1,7 @@
+#include "LowLevel.hpp"
+#include <SDL_surface.h>
+#include <SDL_timer.h>
+#include <Screen.hpp>
 #include <SDL2/SDL_video.h>
 #include <Visualizer.hpp>
 
@@ -25,12 +29,12 @@ void SYS::Start()
     SYS::window = SDL_CreateWindow(
         "Show me please!", 
         SDL_WINDOWPOS_CENTERED,
-        SDL_WINDOWPOS_CENTERED - 25,
+        0,
         1280, 
-        700, 
-        SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP
+        720, 
+        SDL_WINDOW_SHOWN 
     );
-    
+    SDL_SetWindowBordered(SYS::window, SDL_TRUE);
     return ;
 }
 
