@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
     SYS::window = SDL_CreateWindow(
                         "Show me please!",
 					    SDL_WINDOWPOS_CENTERED,
-					    SDL_WINDOWPOS_CENTERED - 20,
-					    1280, 700, 0 
+					    SDL_WINDOWPOS_CENTERED - 25,
+					    1280, 700, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL 
                       );
     
     bool isOpen = true;
