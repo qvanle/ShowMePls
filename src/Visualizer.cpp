@@ -1,6 +1,5 @@
 #include <SDL2/SDL_video.h>
 #include <Visualizer.hpp>
-#include <glad/glad.h>
 
 bool SYS::isOpen = false;
 SDL_Window* SYS::window = nullptr;
@@ -33,7 +32,9 @@ void SYS::Start()
         "Show me please!", 
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED - 25,
-        1280, 700, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL
+        1280, 
+        700, 
+        SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP
     );
     
     SYS::context = SDL_GL_CreateContext(SYS::window);
