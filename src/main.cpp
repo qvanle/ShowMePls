@@ -1,3 +1,7 @@
+#include "LowLevel.hpp"
+#include "SDL_surface.h"
+#include "SDL_video.h"
+#include "Screen.hpp"
 #include <Visualizer.hpp>
 
 int main(int argc, char *argv[])
@@ -9,6 +13,9 @@ int main(int argc, char *argv[])
     }
     
     SYS::Start();
+    Screen homeScreen;
+    homeScreen.loadBackground(GLOBAL::BGFolder, "home.bmp");
+    homeScreen.draw(SYS::window);
 
     while(SYS::isOpen)
     {
