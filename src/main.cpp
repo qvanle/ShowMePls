@@ -1,35 +1,15 @@
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_events.h>
-#include <SDL2/SDL_timer.h>
-#include <SDL2/SDL_video.h>
 #include <iostream>
-
-bool init()
-{	
-    // returns true on success else return false
-	if (SDL_Init(SDL_INIT_VIDEO) != 0) 
-    {
-        std::cout << "Error when initialized SDL video" << std::endl;
-        return false;
-	}else std::cout << "Initializing SDL video success" << std::endl;
-    
-    return true;
-}
+#include <Visualizer.hpp>
 
 int main(int argc, char *argv[])
 {
-    
-    if(!init()) 
-    {
-        std::cout << "Unable to initalize" << std::endl;
-        return 0;
-    }
+    Initialization();
 
-	SDL_Window* window = SDL_CreateWindow(
+    window = SDL_CreateWindow(
                         "Show me please!",
 					    SDL_WINDOWPOS_CENTERED,
-					    SDL_WINDOWPOS_CENTERED,
-					    1000, 1000, 0
+					    SDL_WINDOWPOS_CENTERED - 20,
+					    1280, 700, 0 
                       );
     
     bool isOpen = true;
@@ -46,7 +26,6 @@ int main(int argc, char *argv[])
             }
         }
     }
-
 
     SDL_DestroyWindow(window);
     SDL_Quit();
