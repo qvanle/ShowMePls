@@ -6,17 +6,20 @@
 #include <SDL2/SDL_video.h>
 #include <iostream>
 
-SDL_Window* window;
-
-bool Initialization()
+namespace SYS
 {
-    if (SDL_Init(SDL_INIT_VIDEO) != 0)
+    SDL_Window* window;
+    
+    bool Initialization()
     {
-        std::cout << "Error when initalized SDL video" << std::endl; 
-        return false;
-    }else std::cout << "Initializing SDL video success" << std::endl;
-
-    return true;
+        if (SDL_Init(SDL_INIT_VIDEO) != 0)
+        {
+            std::cout << "Error when initalized SDL video" << std::endl; 
+            return false;
+        }else std::cout << "Initializing SDL video success" << std::endl;
+    
+        return true;
+    }
 }
 
 #endif

@@ -3,9 +3,13 @@
 
 int main(int argc, char *argv[])
 {
-    Initialization();
+    if(!SYS::Initialization())
+    {
+        std::cout << "Unable to run!" << std::endl;
+        return 0;
+    }else std::cout << "ShowMePls is running!" << std::endl;
 
-    window = SDL_CreateWindow(
+    SYS::window = SDL_CreateWindow(
                         "Show me please!",
 					    SDL_WINDOWPOS_CENTERED,
 					    SDL_WINDOWPOS_CENTERED - 20,
@@ -27,7 +31,7 @@ int main(int argc, char *argv[])
         }
     }
 
-    SDL_DestroyWindow(window);
+    SDL_DestroyWindow(SYS::window);
     SDL_Quit();
 
 	return 0;
