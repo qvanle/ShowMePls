@@ -3,7 +3,6 @@
 
 bool SYS::isOpen = false;
 SDL_Window* SYS::window = nullptr;
-SDL_GLContext SYS::context;
 
 bool SYS::Initialization()
 {
@@ -13,11 +12,6 @@ bool SYS::Initialization()
         return false;
     }else std::cout << "Initializing SDL video success" << std::endl;
 
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
     return true;
 }
@@ -37,9 +31,7 @@ void SYS::Start()
         SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL | SDL_WINDOW_FULLSCREEN_DESKTOP
     );
     
-    SYS::context = SDL_GL_CreateContext(SYS::window);
-
-    gladLoadGLLoader(SDL_GL_GetProcAddress);
+    return ;
 }
 
 void SYS::Interacting()

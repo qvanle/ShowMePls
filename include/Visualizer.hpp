@@ -4,13 +4,11 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_events.h>
 #include <SDL2/SDL_video.h>
-#include <glad/glad.h>
 #include <iostream>
 
 namespace SYS
 {
     extern SDL_Window* window;
-    extern SDL_GLContext context; 
     extern bool isOpen;
     bool Initialization();
     void Start();
