@@ -24,3 +24,5 @@ sudo apt-get install libsdl2-dev
 make
 ```
 
+## PREFERENCES
+- change picture exposure: https://pinetools.com/change-image-exposure (I set exposure to -30)
