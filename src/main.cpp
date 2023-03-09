@@ -1,25 +1,31 @@
-#include <Visualizer.hpp>
+#include <MyWindow.hpp>
+#include <glad/glad.h>
 
 int main(int argc, char *argv[])
 {
-    if(!SYS::Initialization())
+    MyWindow mainWindow;
+
+    if(!mainWindow.Initialize())
     {
         std::cout << "Unable to run!" << std::endl;
         return 0;
     }
     
-    SYS::Start();
-
-    while(SYS::isOpen)
+    if(!mainWindow.Start())
     {
-        SYS::Interacting();
-        glClearColor(0.0f, 0.5f, 1.0f, 1.0f);
+        std::cout << "Unable to run!" << std::endl;
+        return 0;
+    }
+    
+    while(mainWindow.isOpen())
+    {
+        mainWindow.Interacting();
         glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-        SDL_GL_SwapWindow(SYS::window);
+        mainWindow.draw();
+        mainWindow.updateWithGL();
     }
 
-    SDL_DestroyWindow(SYS::window);
-    SDL_Quit();
+    mainWindow.shutdown();
 
 	return 0;
 }
