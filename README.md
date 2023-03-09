@@ -11,9 +11,10 @@ This is my CS162 project.
 1. Open terminal and run those command:
 ```
 sudo apt-get update
-sudo apt-get install g++-10
-sudo apt-get install libsdl2-2.0-0
-sudo apt-get install libsdl2-dev
+sudo apt-get install g++-10 build-essential
+sudo apt-get install libsdl2-2.0-0 libsdl2-dev
+sudo apt-get install mesa-common-dev libglm-dev
+sudo apt-get install cmake make 
 ```
 ### On window ()
 
