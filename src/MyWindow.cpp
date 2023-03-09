@@ -1,7 +1,10 @@
+#include "SDL_surface.h"
+#include "glad/glad.h"
 #include <MyWindow.hpp>
 
 bool MyWindow::Initialize()
 {
+    background = 0;
     if (SDL_Init(SDL_INIT_VIDEO) != 0)
     {
         std::cout << "Error when initalized SDL video" << std::endl; 
@@ -84,4 +87,31 @@ void MyWindow::shutdown()
 void MyWindow::updateWithGL()
 {
     SDL_GL_SwapWindow(window);
+}
+
+void MyWindow::loadBackground(const char *dir, const char *name)
+{
+    // concatnate file link
+    int n = strlen(dir) + strlen(name);
+    char* file = new char[n + 2];
+    file[0] = '\0';
+    strcat(file, dir);
+    strcat(file, name);
+    
+    // load file
+    SDL_Surface* image = SDL_LoadBMP(file);
+    
+    // import image to openGL
+    glGenTextures(1, &background);
+    glBindTexture(GL_TEXTURE_2D, background);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image->w, image->h, 0, GL_RGBA, GL_UNSIGNED_BYTE, image->pixels);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+    SDL_FreeSurface(image);
+}
+void draw()
+{
+
+    return ;
 }
