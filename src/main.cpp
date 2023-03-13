@@ -1,29 +1,26 @@
-#include "LowLevel.hpp"
-#include "SDL_surface.h"
-#include "SDL_video.h"
-#include "Screen.hpp"
-#include <Visualizer.hpp>
+#include "SYSTEM.hpp"
+#include <Window.hpp>
 
 int main(int argc, char *argv[])
 {
-    if(!SYS::Initialization())
+
+    MyWindow main;
+
+    if(!main.Initialization())
     {
-        std::cout << "Unable to run!" << std::endl;
-        return 0;
+        return -1;
+    }
+
+    main.Start();
+    main.loadBackground(GLOBAL::BGFolder, "home.bmp");
+    main.render();
+
+    while(main.isOpen())
+    {
+        main.Interacting();
     }
     
-    SYS::Start();
-    Screen homeScreen;
-    homeScreen.loadBackground(GLOBAL::BGFolder, "home.bmp");
-    homeScreen.draw(SYS::window);
-
-    while(SYS::isOpen)
-    {
-        SYS::Interacting();
-    }
-
-    SDL_DestroyWindow(SYS::window);
-    SDL_Quit();
+    main.shutdown();
 
 	return 0;
 }

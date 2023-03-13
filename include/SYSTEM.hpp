@@ -1,5 +1,5 @@
-#ifndef LOWLEVEL
-#define LOWLEVEL
+#ifndef SYSTEM
+#define SYSTEM
 
 #include <string>
 
