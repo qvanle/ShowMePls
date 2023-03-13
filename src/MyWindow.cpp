@@ -11,10 +11,15 @@ bool MyWindow::Initialize()
         return false;
     }else std::cout << "Initializing SDL video success" << std::endl;
 
+    // openGL version 4.6
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 6);
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+
+    // 2 frame, back and front
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+    // RGB 255-255-255
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8);
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8);
@@ -97,7 +102,6 @@ void MyWindow::loadBackground(const char *dir, const char *name)
     file[0] = '\0';
     strcat(file, dir);
     strcat(file, name);
-    
     // load file
     SDL_Surface* image = SDL_LoadBMP(file);
     
@@ -112,6 +116,5 @@ void MyWindow::loadBackground(const char *dir, const char *name)
 }
 void draw()
 {
-
     return ;
 }
