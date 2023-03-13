@@ -1,4 +1,3 @@
-#include "SDL_video.h"
 #include <Window.hpp>
 
 MyWindow::MyWindow()
@@ -6,6 +5,8 @@ MyWindow::MyWindow()
     Initialization();
     status = 0;
     window = nullptr;
+    WIDTH = 960;
+    HEIGHT = 540;
 }
 bool MyWindow::Initialization()
 {
@@ -26,9 +27,9 @@ void MyWindow::Start()
     window = SDL_CreateWindow(
         "Show me please!", 
         SDL_WINDOWPOS_CENTERED,
-        0,
-        1280, 
-        720, 
+        SDL_WINDOWPOS_CENTERED,
+        WIDTH, 
+        HEIGHT, 
         SDL_WINDOW_SHOWN 
     );
 
@@ -80,7 +81,7 @@ void MyWindow::render()
 {
     SDL_Rect scale;
     scale.x = 0; scale.y = 0;
-    scale.w = 1280; scale.h = 720;
+    scale.w = WIDTH; scale.h = HEIGHT;
     SDL_BlitSurface(background, nullptr, display, &scale);
     SDL_UpdateWindowSurface(window);
 

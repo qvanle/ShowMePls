@@ -9,6 +9,7 @@
 #include <SDL_surface.h>
 #include <SDL_timer.h>
 #include <SDL2/SDL.h>
+#include <Button.hpp>
 
 class MyWindow
 {
@@ -16,7 +17,11 @@ private:
     SDL_Window* window;
     SDL_Surface* background;
     SDL_Surface* display;
+    
     int status;
+    int HEIGHT;
+    int WIDTH;
+
 public:
     MyWindow();
     bool isOpen();
