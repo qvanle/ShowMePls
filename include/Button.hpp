@@ -1,15 +1,25 @@
 #ifndef BUTTON
 #define BUTTON
 
-#include "SDL_surface.h"
 #include <vector>
-#include <SDL2/SDL.h>
 #include <SDL_surface.h>
+#include <filesystem>
 
-struct Button 
+class Button 
 {
-    std::vector<SDL_Surface> textures;    
+private:
+    std::vector<SDL_Surface*> textures;    
     int status;
+    const char* dir;
+    const char* Text;
+public:
+    Button();
+    void setTextures(const char* link);
+    void setText(const char* s);
+    void setStatus(int k);
+    int getStatus();
+    void FreeTextures();
+    SDL_Surface* getTexture();
 };
 
 #endif
